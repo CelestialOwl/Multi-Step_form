@@ -8,8 +8,22 @@ pipeline {
     }
 
     stage('logs') {
-      steps {
-        sh 'ls -la'
+      parallel {
+        stage('logs') {
+          steps {
+            sh 'ls -la'
+          }
+        }
+
+        stage('Front-end-test') {
+          steps {
+            dir(path: 'src') {
+              dir(path: 'dir("src")')
+            }
+
+          }
+        }
+
       }
     }
 
