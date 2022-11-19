@@ -7,21 +7,10 @@ pipeline {
       }
     }
 
-    stage('logs') {
-      parallel {
-        stage('logs') {
-          steps {
-            sh 'ls -la'
-          }
-        }
-
-        stage('change dir') {
-          steps {
-            dir(path: 'src') {
-              sh 'ls -a'
-            }
-
-          }
+    stage('change dir') {
+      steps {
+        dir(path: 'src') {
+          sh 'ls -a'
         }
 
       }
