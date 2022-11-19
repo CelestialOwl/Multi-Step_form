@@ -8,9 +8,20 @@ pipeline {
     }
 
     stage('change dir') {
-      steps {
-        dir(path: 'src') {
-          sh 'ls -a'
+      parallel {
+        stage('change dir') {
+          steps {
+            dir(path: 'src') {
+              sh 'ls -a'
+            }
+
+          }
+        }
+
+        stage('run build') {
+          steps {
+            sh 'npm run build'
+          }
         }
 
       }
