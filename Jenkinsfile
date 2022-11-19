@@ -17,7 +17,10 @@ pipeline {
 
         stage('change dir') {
           steps {
-            dir(path: 'src')
+            dir(path: 'src') {
+              sh 'ls -a'
+            }
+
           }
         }
 
