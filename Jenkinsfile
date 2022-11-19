@@ -15,12 +15,9 @@ pipeline {
           }
         }
 
-        stage('Front-end-test') {
+        stage('change dir') {
           steps {
-            dir(path: 'src') {
-              dir(path: 'dir("src")')
-            }
-
+            dir(path: 'src')
           }
         }
 
