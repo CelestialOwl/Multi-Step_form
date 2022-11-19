@@ -20,7 +20,7 @@ pipeline {
 
         stage('run build') {
           steps {
-            sh 'npm run build'
+            sh 'npm start'
           }
         }
 
